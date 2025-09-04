@@ -31,19 +31,4 @@ public class RewardsController {
         logger.info("Returning reward summaries for {} customers", summaries.size());
         return ResponseEntity.ok(summaries);
     }
-    @GetMapping("/{customerId}")
-    public ResponseEntity<CustomerRewardDetails> getRewards(
-            @PathVariable String customerId,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate startDate,
-            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate endDate) {
-        logger.info("Calculating rewards for customer {} between {} and {}", customerId, startDate, endDate);
-        try {
-            CustomerRewardDetails rewards = rewardService.calculateRewards(customerId, startDate, endDate);
-            return ResponseEntity.ok(rewards);
-        } catch (CustomerNotFoundException e) {
-            logger.error("Customer not found: {}", e.getMessage());
-            throw e;
-        }
-
-    }
 }
