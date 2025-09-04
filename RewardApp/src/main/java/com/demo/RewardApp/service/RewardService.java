@@ -34,7 +34,6 @@ public class RewardService {
                     .add(t);
         });
 
-        // Calculate rewards
         List<CustomerRewardDetails> summaries = customerMonthlyTransactions.entrySet().stream()
                 .map(entry -> {
                     String customerId = entry.getKey();
@@ -51,7 +50,6 @@ public class RewardService {
                         totalPoints += monthlyPoints;
                     }
 
-                    // Sort by month
                     monthlyRewards.sort((a, b) -> YearMonth.parse(a.getMonth(), MONTH_FORMATTER)
                             .compareTo(YearMonth.parse(b.getMonth(), MONTH_FORMATTER)));
 
