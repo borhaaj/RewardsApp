@@ -54,7 +54,8 @@ This project provides a RESTful API to calculate reward points for customers bas
   }
 ]
 
-### Response
+### Response 
+```json
 [
     {
         "customerId": "C002",
@@ -89,3 +90,7 @@ This project provides a RESTful API to calculate reward points for customers bas
         "totalPoints": 265
     }
 ]
+
+ScreenShot:
+<img width="638" height="442" alt="image" src="https://github.com/user-attachments/assets/cb318102-f233-4add-aaef-3ed69c4030ca" />
+
