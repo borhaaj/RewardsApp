@@ -29,7 +29,63 @@ This project provides a RESTful API to calculate reward points for customers bas
 [
   {
     "customerId": "C001",
-    "amount": 120.0,
-    "date": "2023-01-15"
+    "amount": 120,
+    "date": "2025-08-15"
+  },
+  {
+    "customerId": "C001",
+    "amount": 75,
+    "date": "2025-07-20"
+  },
+  {
+    "customerId": "C001",
+    "amount": 150,
+    "date": "2025-07-10"
+  },
+  {
+    "customerId": "C002",
+    "amount": 60,
+    "date": "2025-07-05"
+  },
+  {
+    "customerId": "C002",
+    "amount": 200,
+    "date": "2025-08-12"
   }
+]
+
+### Response
+[
+    {
+        "customerId": "C002",
+        "monthlyRewards": [
+            {
+                "amount": 60.0,
+                "month": "2025-07",
+                "points": 10
+            },
+            {
+                "amount": 200.0,
+                "month": "2025-08",
+                "points": 250
+            }
+        ],
+        "totalPoints": 260
+    },
+    {
+        "customerId": "C001",
+        "monthlyRewards": [
+            {
+                "amount": 225.0,
+                "month": "2025-07",
+                "points": 175
+            },
+            {
+                "amount": 120.0,
+                "month": "2025-08",
+                "points": 90
+            }
+        ],
+        "totalPoints": 265
+    }
 ]
