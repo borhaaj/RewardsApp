@@ -1,4 +1,4 @@
-package com.demo.RewardApp.exception;
+package com.rewardApps.RewardApp.exception;
 
 public class InvalidTransactionException extends RuntimeException {
     public InvalidTransactionException(String message) {

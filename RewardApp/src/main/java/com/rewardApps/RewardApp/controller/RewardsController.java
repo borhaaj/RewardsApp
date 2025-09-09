@@ -1,12 +1,16 @@
-package com.demo.RewardApp.controller;
+package com.rewardApps.RewardApp.controller;
 
-import com.demo.RewardApp.model.*;
-import com.demo.RewardApp.service.RewardService;
+import com.rewardApps.RewardApp.model.CustomerRewardDetails;
+import com.rewardApps.RewardApp.model.TransactionRequest;
+import com.rewardApps.RewardApp.service.RewardService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 
@@ -20,9 +24,14 @@ public class RewardsController {
     public RewardsController(RewardService rewardService) {
         this.rewardService = rewardService;
     }
+
     @PostMapping("/calculate")
     public ResponseEntity<List<CustomerRewardDetails>> calculateRewards(
             @Valid @RequestBody List<TransactionRequest> transactions) {
+        if (transactions == null) {
+            logger.warn("Received null transaction list");
+            return ResponseEntity.badRequest().build();
+        }
         logger.info("Received request to calculate rewards for {} transactions", transactions.size());
         List<CustomerRewardDetails> summaries = rewardService.calculateRewards(transactions);
         logger.info("Returning reward summaries for {} customers", summaries.size());

@@ -8,11 +8,11 @@
 		<version>3.5.5</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.demo</groupId>
+	<groupId>com.rewardApps</groupId>
 	<artifactId>RewardApp</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<name>RewardApp</name>
-	<description>Demo project for Spring Boot</description>
+	<description>RewardApps project for Spring Boot</description>
 	<url/>
 	<licenses>
 		<license/>

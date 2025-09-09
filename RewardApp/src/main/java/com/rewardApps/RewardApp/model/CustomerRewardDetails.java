@@ -1,4 +1,4 @@
-package com.demo.RewardApp.model;
+package com.rewardApps.RewardApp.model;
 
 import lombok.Getter;
 
