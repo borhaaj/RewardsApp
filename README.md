@@ -54,7 +54,7 @@ This project provides a RESTful API to calculate reward points for customers bas
   }
 ]
 
-### **Response** 
+### Response Body
 ```json
 [
     {
