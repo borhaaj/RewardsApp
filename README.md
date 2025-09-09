@@ -96,3 +96,8 @@ This project provides a RESTful API to calculate reward points for customers bas
 
 <img width="638" height="442" alt="image" src="https://github.com/user-attachments/assets/cb318102-f233-4add-aaef-3ed69c4030ca" />
 
+```
+**Test Evidance:**
+<img width="897" height="371" alt="image" src="https://github.com/user-attachments/assets/71d858ec-e806-4e7c-8621-b19757295175" />
+
+
