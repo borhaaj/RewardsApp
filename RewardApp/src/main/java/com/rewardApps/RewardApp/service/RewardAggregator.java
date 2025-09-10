@@ -1,14 +1,15 @@
-package com.rewardApps.RewardApp.service;
+package com.rewardApps.rewardApp.service;
 
-import com.rewardApps.RewardApp.model.CustomerRewardDetails;
-import com.rewardApps.RewardApp.model.MonthlyReward;
-import com.rewardApps.RewardApp.model.TransactionRequest;
+import com.rewardApps.rewardApp.model.CustomerRewardDetails;
+import com.rewardApps.rewardApp.model.MonthlyReward;
+import com.rewardApps.rewardApp.model.TransactionRequest;
 import org.springframework.stereotype.Component;
 
 import java.time.YearMonth;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 import java.util.stream.Collectors;
+
 @Component
 public class RewardAggregator {
 
@@ -20,36 +21,46 @@ public class RewardAggregator {
     }
 
     public List<CustomerRewardDetails> aggregate(List<TransactionRequest> transactions) {
-        Map<String, Map<String, List<TransactionRequest>>> grouped = new HashMap<>();
+        Map<String, Map<String, List<TransactionRequest>>> groupOfTx = new HashMap<>();
 
         for (TransactionRequest t : transactions) {
             String customerId = t.getCustomerId();
             String month = t.getDate().format(MONTH_FORMATTER);
-            grouped.computeIfAbsent(customerId, k -> new HashMap<>())
+            groupOfTx.computeIfAbsent(customerId, k -> new HashMap<>())
                     .computeIfAbsent(month, k -> new ArrayList<>())
                     .add(t);
         }
-
-        return grouped.entrySet().stream()
-                .map(entry -> {
-                    String customerId = entry.getKey();
-                    List<MonthlyReward> monthlyRewards = new ArrayList<>();
-                    long totalPoints = 0;
-                    for (Map.Entry<String, List<TransactionRequest>> monthEntry : entry.getValue().entrySet()) {
-                        String month = monthEntry.getKey();
-                        List<TransactionRequest> txns = monthEntry.getValue();
-                        long monthlyPoints = txns.stream()
-                                .mapToLong(t -> calculator.calculatePoints(t.getAmount()))
-                                .sum();
-                        double totalAmount = txns.stream()
-                                .mapToDouble(TransactionRequest::getAmount)
-                                .sum();
-                        monthlyRewards.add(new MonthlyReward(totalAmount, month, monthlyPoints));
-                        totalPoints += monthlyPoints;
-                    }
-                    monthlyRewards.sort(Comparator.comparing(m -> YearMonth.parse(m.getMonth(), MONTH_FORMATTER)));
-                    return new CustomerRewardDetails(customerId, monthlyRewards, totalPoints);
-                })
+        return groupOfTx.entrySet().stream()
+                .map(entry -> buildCustomerRewardDetails(entry.getKey(), entry.getValue()))
                 .collect(Collectors.toList());
     }
+
+    private CustomerRewardDetails buildCustomerRewardDetails(String customerId, Map<String, List<TransactionRequest>> monthlyTxnMap) {
+        List<MonthlyReward> monthlyRewards = monthlyTxnMap.entrySet().stream()
+                .map(this::calculateMonthlyReward)
+                .sorted(Comparator.comparing(r -> YearMonth.parse(r.getMonth(), MONTH_FORMATTER)))
+                .collect(Collectors.toList());
+
+        long totalPoints = monthlyRewards.stream()
+                .mapToLong(MonthlyReward::getPoints)
+                .sum();
+
+        return new CustomerRewardDetails(customerId, monthlyRewards, totalPoints);
+    }
+
+    private MonthlyReward calculateMonthlyReward(Map.Entry<String, List<TransactionRequest>> monthEntry) {
+        String month = monthEntry.getKey();
+        List<TransactionRequest> transactions = monthEntry.getValue();
+
+        long monthlyPoints = transactions.stream()
+                .mapToLong(t -> calculator.calculatePoints(t.getAmount()))
+                .sum();
+
+        double totalAmount = transactions.stream()
+                .mapToDouble(TransactionRequest::getAmount)
+                .sum();
+
+        return new MonthlyReward(totalAmount, month, monthlyPoints);
+    }
+
 }

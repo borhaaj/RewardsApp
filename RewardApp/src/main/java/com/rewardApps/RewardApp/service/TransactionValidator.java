@@ -1,11 +1,12 @@
-package com.rewardApps.RewardApp.service;
+package com.rewardApps.rewardApp.service;
 
-import com.rewardApps.RewardApp.exception.InvalidTransactionException;
-import com.rewardApps.RewardApp.model.TransactionRequest;
+import com.rewardApps.rewardApp.exception.InvalidTransactionException;
+import com.rewardApps.rewardApp.model.TransactionRequest;
 import org.springframework.stereotype.Component;
 
 import java.time.LocalDate;
 import java.util.List;
+
 @Component
 public class TransactionValidator {
     public void validate(List<TransactionRequest> transactions) {

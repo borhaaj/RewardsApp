@@ -1,14 +1,15 @@
-package com.rewardApps.RewardApp.model;
+package com.rewardApps.rewardApp.model;
 
 
 import lombok.Getter;
 
 import java.time.LocalDate;
+
 @Getter
 public class TransactionRequest {
-    private String customerId;
-    private double amount;
-    private LocalDate date;
+    private final String customerId;
+    private final double amount;
+    private final LocalDate date;
 
     public TransactionRequest(String customerId, double amount, LocalDate date) {
         this.customerId = customerId;

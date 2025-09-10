@@ -1,12 +1,12 @@
-package com.rewardApps.RewardApp.model;
+package com.rewardApps.rewardApp.model;
 
 import lombok.Getter;
 
 @Getter
 public class MonthlyReward {
-    private double amount;
-    private String month;
-    private long points;
+    private final double amount;
+    private final String month;
+    private final long points;
 
     public MonthlyReward(double amount, String month, long points) {
         this.amount = amount;

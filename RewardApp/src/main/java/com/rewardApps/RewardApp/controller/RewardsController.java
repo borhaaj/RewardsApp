@@ -1,8 +1,8 @@
-package com.rewardApps.RewardApp.controller;
+package com.rewardApps.rewardApp.controller;
 
-import com.rewardApps.RewardApp.model.CustomerRewardDetails;
-import com.rewardApps.RewardApp.model.TransactionRequest;
-import com.rewardApps.RewardApp.service.RewardService;
+import com.rewardApps.rewardApp.model.CustomerRewardDetails;
+import com.rewardApps.rewardApp.model.TransactionRequest;
+import com.rewardApps.rewardApp.service.RewardService;
 import jakarta.validation.Valid;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

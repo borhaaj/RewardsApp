@@ -1,13 +1,14 @@
-package com.rewardApps.RewardApp.model;
+package com.rewardApps.rewardApp.model;
 
 import lombok.Getter;
 
 import java.time.LocalDateTime;
+
 @Getter
 public class ErrorResponse {
-    private int status;
-    private String message;
-    private LocalDateTime timestamp;
+    private final int status;
+    private final String message;
+    private final LocalDateTime timestamp;
 
     public ErrorResponse(int status, String message) {
         this.status = status;

@@ -1,7 +1,7 @@
-package com.rewardApps.RewardApp.service;
+package com.rewardApps.rewardApp.service;
 
-import com.rewardApps.RewardApp.model.CustomerRewardDetails;
-import com.rewardApps.RewardApp.model.TransactionRequest;
+import com.rewardApps.rewardApp.model.CustomerRewardDetails;
+import com.rewardApps.rewardApp.model.TransactionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,12 +10,15 @@ import java.util.List;
 
 @Service
 public class RewardService {
+    private final TransactionValidator transactionValidator;
+    private final RewardAggregator rewardAggregator;
+
     @Autowired
-    private TransactionValidator transactionValidator;
-    @Autowired
-    private RewardCalculator rewardCalculator;
-    @Autowired
-    private RewardAggregator rewardAggregator;
+    public RewardService(TransactionValidator transactionValidator,
+                         RewardAggregator rewardAggregator) {
+        this.transactionValidator = transactionValidator;
+        this.rewardAggregator = rewardAggregator;
+    }
 
     public List<CustomerRewardDetails> calculateRewards(List<TransactionRequest> transactionRequests) {
         transactionValidator.validate(transactionRequests);

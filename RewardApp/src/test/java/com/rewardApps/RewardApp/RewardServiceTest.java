@@ -1,11 +1,11 @@
-package com.rewardApps.RewardApp;
+package com.rewardApps.rewardApp;
 
-import com.rewardApps.RewardApp.model.CustomerRewardDetails;
-import com.rewardApps.RewardApp.model.TransactionRequest;
-import com.rewardApps.RewardApp.service.RewardAggregator;
-import com.rewardApps.RewardApp.service.RewardCalculator;
-import com.rewardApps.RewardApp.service.RewardService;
-import com.rewardApps.RewardApp.service.TransactionValidator;
+import com.rewardApps.rewardApp.model.CustomerRewardDetails;
+import com.rewardApps.rewardApp.model.TransactionRequest;
+import com.rewardApps.rewardApp.service.RewardAggregator;
+import com.rewardApps.rewardApp.service.RewardCalculator;
+import com.rewardApps.rewardApp.service.RewardService;
+import com.rewardApps.rewardApp.service.TransactionValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -55,9 +55,6 @@ class RewardServiceTest {
     @Test
     void filterLastThreeMonths_shouldFilterCorrectly() {
         LocalDate today = LocalDate.now();
-        LocalDate twoMonthsAgo = today.minusMonths(2);
-        LocalDate fourMonthsAgo = today.minusMonths(4);
-        LocalDate threeMonthsAgo = today.minusMonths(3);
         TransactionRequest recent1 = new TransactionRequest("C001", 100.0,LocalDate.now());
         TransactionRequest recent2 = new TransactionRequest("C002", 100.0,LocalDate.now());
         TransactionRequest boundary = new TransactionRequest("C003", 100.0,LocalDate.now());
