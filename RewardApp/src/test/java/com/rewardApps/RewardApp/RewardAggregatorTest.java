@@ -40,9 +40,8 @@ class RewardAggregatorTest {
         List<CustomerRewardDetails> result = aggregator.aggregate(transactions);
         assertEquals(2, result.size());
         CustomerRewardDetails cust1 = result.stream()
-                .filter(r -> r.getCustomerId().equals("CUST001"))
-                .findFirst()
-                .orElseThrow();
+                .filter(r -> r.getCustomerId().equals("C001"))
+                .findFirst().orElseThrow();;
         assertEquals(2, cust1.getMonthlyRewards().size());
         assertEquals(270L, cust1.getTotalPoints());
         MonthlyReward julyReward = cust1.getMonthlyRewards().get(0);
@@ -52,7 +51,7 @@ class RewardAggregatorTest {
         assertEquals("2023-08", augustReward.getMonth());
         assertEquals(150L, augustReward.getPoints());
         CustomerRewardDetails cust2 = result.stream()
-                .filter(r -> r.getCustomerId().equals("CUST002"))
+                .filter(r -> r.getCustomerId().equals("C002"))
                 .findFirst()
                 .orElseThrow();
         assertEquals(1, cust2.getMonthlyRewards().size());
