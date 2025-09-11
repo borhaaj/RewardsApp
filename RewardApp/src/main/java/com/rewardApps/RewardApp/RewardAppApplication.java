@@ -1,4 +1,4 @@
-package com.rewardApps.rewardApp;
+package com.rewardApps.rewardapp;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

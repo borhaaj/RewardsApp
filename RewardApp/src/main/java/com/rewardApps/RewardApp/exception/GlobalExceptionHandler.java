@@ -1,6 +1,6 @@
-package com.rewardApps.rewardApp.exception;
+package com.rewardApps.rewardapp.exception;
 
-import com.rewardApps.rewardApp.model.ErrorResponse;
+import com.rewardApps.rewardapp.model.ErrorResponse;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;

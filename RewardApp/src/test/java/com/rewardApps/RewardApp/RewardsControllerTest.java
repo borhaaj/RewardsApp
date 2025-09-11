@@ -1,13 +1,13 @@
-package com.rewardApps.rewardApp;
+package com.rewardApps.rewardapp;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import com.rewardApps.rewardApp.controller.RewardsController;
-import com.rewardApps.rewardApp.model.CustomerRewardDetails;
-import com.rewardApps.rewardApp.model.MonthlyReward;
-import com.rewardApps.rewardApp.model.TransactionRequest;
-import com.rewardApps.rewardApp.service.RewardService;
+import com.rewardApps.rewardapp.controller.RewardsController;
+import com.rewardApps.rewardapp.model.CustomerRewardDetails;
+import com.rewardApps.rewardapp.model.MonthlyReward;
+import com.rewardApps.rewardapp.model.TransactionRequest;
+import com.rewardApps.rewardapp.service.RewardService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

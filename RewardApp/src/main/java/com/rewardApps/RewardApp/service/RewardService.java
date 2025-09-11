@@ -1,7 +1,7 @@
-package com.rewardApps.rewardApp.service;
+package com.rewardApps.rewardapp.service;
 
-import com.rewardApps.rewardApp.model.CustomerRewardDetails;
-import com.rewardApps.rewardApp.model.TransactionRequest;
+import com.rewardApps.rewardapp.model.CustomerRewardDetails;
+import com.rewardApps.rewardapp.model.TransactionRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

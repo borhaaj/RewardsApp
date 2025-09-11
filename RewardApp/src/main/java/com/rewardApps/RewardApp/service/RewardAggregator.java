@@ -1,8 +1,8 @@
-package com.rewardApps.rewardApp.service;
+package com.rewardApps.rewardapp.service;
 
-import com.rewardApps.rewardApp.model.CustomerRewardDetails;
-import com.rewardApps.rewardApp.model.MonthlyReward;
-import com.rewardApps.rewardApp.model.TransactionRequest;
+import com.rewardApps.rewardapp.model.CustomerRewardDetails;
+import com.rewardApps.rewardapp.model.MonthlyReward;
+import com.rewardApps.rewardapp.model.TransactionRequest;
 import org.springframework.stereotype.Component;
 
 import java.time.YearMonth;

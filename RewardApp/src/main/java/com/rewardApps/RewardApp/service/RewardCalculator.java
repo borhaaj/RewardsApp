@@ -1,4 +1,4 @@
-package com.rewardApps.rewardApp.service;
+package com.rewardApps.rewardapp.service;
 
 import org.springframework.stereotype.Component;
 

@@ -1,11 +1,11 @@
-package com.rewardApps.rewardApp;
+package com.rewardApps.rewardapp;
 
-import com.rewardApps.rewardApp.model.CustomerRewardDetails;
-import com.rewardApps.rewardApp.model.TransactionRequest;
-import com.rewardApps.rewardApp.service.RewardAggregator;
-import com.rewardApps.rewardApp.service.RewardCalculator;
-import com.rewardApps.rewardApp.service.RewardService;
-import com.rewardApps.rewardApp.service.TransactionValidator;
+import com.rewardApps.rewardapp.model.CustomerRewardDetails;
+import com.rewardApps.rewardapp.model.TransactionRequest;
+import com.rewardApps.rewardapp.service.RewardAggregator;
+import com.rewardApps.rewardapp.service.RewardCalculator;
+import com.rewardApps.rewardapp.service.RewardService;
+import com.rewardApps.rewardapp.service.TransactionValidator;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

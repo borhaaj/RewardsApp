@@ -1,4 +1,4 @@
-package com.rewardApps.rewardApp.exception;
+package com.rewardApps.rewardapp.exception;
 
 public class CustomerNotFoundException extends RuntimeException {
     public CustomerNotFoundException(String message) {
